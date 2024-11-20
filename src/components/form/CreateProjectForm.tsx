@@ -7,9 +7,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-
-
-
+import { createProject } from "@/actions/projects/create-project";
+import { toast } from "sonner";
 
 export const CreateProjectForm = () => {
     const form = useForm<z.infer<typeof createProjectSchema>>({
@@ -20,10 +19,14 @@ export const CreateProjectForm = () => {
         },
     })
 
-    function onSubmit(values: z.infer<typeof createProjectSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+    async function onSubmit(data: z.infer<typeof createProjectSchema>) {
+        const response = await createProject(data);
+
+        if (!response.success) {
+            return toast.error("Error creating project");
+        }
+
+        toast.success("Project created successfully");
     }
 
     return (
