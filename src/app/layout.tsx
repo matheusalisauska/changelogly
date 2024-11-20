@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <div className="min-h-screen h-full">{children}</div>
+        <main className="min-h-screen h-full">{children}</main>
       </body>
     </html>
   );
