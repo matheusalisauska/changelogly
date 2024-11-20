@@ -3,8 +3,14 @@ import { Plus } from "lucide-react";
 import { ProjectCard } from "./ProjectCard";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import { Project } from "@/actions/projects/get-projects";
 
-export const Projects = () => {
+interface ProjectsProps {
+  projects: Project[];
+}
+
+export const Projects = ({ projects }: ProjectsProps) => {
+
   return (
     <div className="flex flex-col gap-y-6 mt-8">
       <div className="flex flex-col gap-y-4">
@@ -19,58 +25,20 @@ export const Projects = () => {
         </div>
         <Input placeholder="Search your project" className="sm:max-w-[300px]" />
       </div>
-      <div className="flex flex-col sm:grid sm:grid-cols-2 2xl:grid-cols-3 sm:gap-x-4 gap-y-4">
-        <ProjectCard
-          name="Plataforma Comercial"
-          description="Plataforma de cadastro e criação de propostas comerciais"
-          tags={["Next.js", "TypeScript"]}
-        />
-        <ProjectCard
-          name="Site Institucional"
-          description="Plataforma de cadastro e criação de propostas comerciais"
-          tags={["Astro.js", "TypeScript"]}
-        />
-        <ProjectCard
-          name="Site Institucional"
-          description="Plataforma de cadastro e criação de propostas comerciais"
-          tags={["Astro.js", "TypeScript"]}
-        />
-        <ProjectCard
-          name="Site Institucional"
-          description="Plataforma de cadastro e criação de propostas comerciais"
-          tags={["Astro.js", "TypeScript"]}
-        />
-        <ProjectCard
-          name="Site Institucional"
-          description="Plataforma de cadastro e criação de propostas comerciais"
-          tags={["Astro.js", "TypeScript"]}
-        />
-        <ProjectCard
-          name="Site Institucional"
-          description="Plataforma de cadastro e criação de propostas comerciais"
-          tags={["Astro.js", "TypeScript"]}
-        />
-        <ProjectCard
-          name="Site Institucional"
-          description="Plataforma de cadastro e criação de propostas comerciais"
-          tags={["Astro.js", "TypeScript"]}
-        />
-        <ProjectCard
-          name="Site Institucional"
-          description="Plataforma de cadastro e criação de propostas comerciais"
-          tags={["Astro.js", "TypeScript"]}
-        />
-        <ProjectCard
-          name="Site Institucional"
-          description="Plataforma de cadastro e criação de propostas comerciais"
-          tags={["Astro.js", "TypeScript"]}
-        />
-        <ProjectCard
-          name="Site Institucional"
-          description="Plataforma de cadastro e criação de propostas comerciais"
-          tags={["Astro.js", "TypeScript"]}
-        />
-      </div>
+      {projects.length === 0 ? (
+        <p className="text-sm  text-center text-gray-400">No projects found</p>
+      ) : (
+        <div className="flex flex-col sm:grid sm:grid-cols-2 2xl:grid-cols-3 sm:gap-x-4 gap-y-4">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              name={project.name}
+              description={project.description}
+              tags={project.tags}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
