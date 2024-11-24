@@ -4,16 +4,8 @@
       "id": "1",
       "name": "changelogly",
       "description": "A simple changelog app",
-      "subscribed_users_id": [
-        1,
-        2,
-        3
-      ]
-    },
-    {
-      "id": "2",
-      "name": "Plataforma Comercial",
-      "description": "A simple plataforma comercial"
+      "subscribed_users_id": [1, 2, 3],
+      "tags": ["nodejs", "express", "sequelize"]
     }
   ]
 }
