@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
         <main className="min-h-screen h-full">{children}</main>
-        <Toaster />
+        <Toaster richColors />
       </body>
     </html>
   );
