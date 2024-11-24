@@ -1,3 +1,4 @@
+import TagBadge from "../TagBadge";
 
 interface ProjectCardProps {
   name: string;
@@ -20,12 +21,7 @@ export const ProjectCard = ({
           </div>
           <div className="flex flex-row gap-x-2">
             {tags.map((tag, index) => (
-              <div
-                key={index}
-                className="rounded-lg  px-2 py-0.5 bg-[#e7e7e8]"
-              >
-                <p className="text-sm text-[#1C1C1C]">{tag}</p>
-              </div>
+              <TagBadge key={index} label={tag} />
             ))}
           </div>
         </div>
