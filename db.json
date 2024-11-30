@@ -2,9 +2,15 @@
   "projects": [
     {
       "id": "1",
-      "name": "changelogly",
-      "description": "A simple changelog app",
+      "name": "Changelogly",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ut sem aliquam tincidunt. Nullam nec purus ut sem aliquam tincidunt.",
       "subscribed_users_id": [1, 2, 3],
+      "tags": ["Nodejs", "Express", "AWS"]
+    },
+    {
+      "id": "74e5",
+      "name": "Alisauska",
+      "description": "Gonzalez",
       "tags": ["nodejs", "express", "sequelize"]
     }
   ]
