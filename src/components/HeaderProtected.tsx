@@ -5,9 +5,8 @@ export const HeaderProtected = () => {
 
   return (
     <header className="fixed lg:static rounded-lg top-0 right-0 bg-white flex flex-row justify-between items-center w-full px-4 sm:px-8 lg:px-16 2xl:px-12 py-5 lg:pt-8 lg:h-20 z-20 ">
-      <SidebarMobile>
-        <Menu className="flex lg:hidden" />
-      </SidebarMobile>
+      <SidebarMobile />
+
       <p className=" font-semibold lg:hidden text-primary">changelogly</p>
       <div className="items-center gap-x-12 hidden lg:flex">
         <div className="flex items-center gap-x-2 text-[#130101]">
