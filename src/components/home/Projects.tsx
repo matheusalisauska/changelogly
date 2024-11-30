@@ -10,7 +10,6 @@ interface ProjectsProps {
 }
 
 export const Projects = ({ projects }: ProjectsProps) => {
-
   return (
     <div className="flex flex-col gap-y-6 mt-8">
       <section className="flex flex-col gap-y-4">
@@ -32,6 +31,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
           {projects.map((project) => (
             <ProjectCard
               key={project.id}
+              id={project.id}
               name={project.name}
               description={project.description}
               tags={project.tags}

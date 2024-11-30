@@ -28,11 +28,9 @@ export const CreateProjectForm = () => {
     });
 
     async function onSubmit(data: z.infer<typeof createProjectSchema>) {
-        const tagValues = selectedTags.map((tag) => tag.value)
-
         const dataWithTags = {
             ...data,
-            tags: tagValues,
+            tags: selectedTags,
         };
 
         try {
@@ -47,14 +45,21 @@ export const CreateProjectForm = () => {
 
     function handleTagSelect(tag: { label: string; value: string }) {
         if (!selectedTags.find((t) => t.value === tag.value)) {
-            setSelectedTags((prev) => [...prev, tag]);
+            const updatedTags = [...selectedTags, tag];
+            setSelectedTags(updatedTags);
+
+            form.setValue("tags", updatedTags);
         }
     }
 
     function handleTagRemove(tagValue: string) {
-        setSelectedTags((prev) => prev.filter((tag) => tag.value !== tagValue));
+        const updatedTags = selectedTags.filter((tag) => tag.value !== tagValue);
+        setSelectedTags(updatedTags);
+
+        form.setValue("tags", updatedTags);
     }
 
+    console.log(form.formState.errors.tags?.message);
     return (
         <section className="flex flex-col gap-y-6">
             <h1 className="font-bold text-xl">Create your Project</h1>
@@ -96,7 +101,11 @@ export const CreateProjectForm = () => {
                                 disabledOptions={selectedTags}
                             />
                         </FormControl>
-                        <FormMessage />
+                        {
+                            form.formState.errors.tags?.message && (
+                                <FormMessage>{form.formState.errors.tags?.message}</FormMessage>
+                            )
+                        }
                     </FormItem>
                     {selectedTags.length > 0 && (
                         <div className="flex flex-row gap-x-2 items-center">
