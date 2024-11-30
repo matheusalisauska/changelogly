@@ -1,22 +1,53 @@
 "use client";
-import React, { useState } from "react";
 
-interface SidebarMobileProps {
-  children: React.ReactNode;
-}
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger
+} from "@/components/ui/drawer";
+import ProfilePicture from '@public/assets/ProfilePicture.png';
+import { AppWindow, House, LogOut, Menu } from "lucide-react";
+import Image from "next/image";
 
-export const SidebarMobile = ({ children }: SidebarMobileProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+export const SidebarMobile = () => {
   return (
-    <div>
-      <button onClick={() => setIsOpen(!isOpen)}>{children}</button>
-      {isOpen && (
-        <div className="flex flex-col fixed top-0 left-0 bg-white-500 w-screen h-screen">
-
+    <Drawer direction="left">
+      <DrawerTrigger><Menu /></DrawerTrigger>
+      <DrawerContent className="flex flex-col  h-full w-[300px]">
+        <DrawerHeader>
+          <div className="flex items-center gap-x-4 border-b-[1px] pb-8">
+            <Image
+              src={ProfilePicture}
+              className="rounded-full size-14 object-cover"
+              alt='Profile Picture'
+            />
+            <div className="flex flex-col items-start">
+              <DrawerTitle>Matheus Alisauska</DrawerTitle>
+              <DrawerDescription>Software Engineer</DrawerDescription>
+            </div>
+          </div>
+        </DrawerHeader>
+        <div className="flex flex-col gap-y-7 px-4 py-4">
+          <div className="flex items-center gap-x-4">
+            <House color="#2B2E48" />
+            <p className="text-[#0F0F0F]">Home</p>
+          </div>
+          <div className="flex items-center gap-x-4">
+            <AppWindow color="#2B2E48" />
+            <p className="text-[#0F0F0F]">Projects</p>
+          </div>
         </div>
-      )}
-
-    </div >
+        <DrawerFooter>
+          <div className="flex gap-x-2">
+            <LogOut color="#ef4444" />
+            <p className="text-red-500">Sair</p>
+          </div>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
 };
