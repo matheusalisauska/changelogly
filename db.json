@@ -9,8 +9,14 @@
     },
     {
       "id": "74e5",
-      "name": "Alisauska",
-      "description": "Gonzalez",
+      "name": "Twitter",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ut sem aliquam tincidunt. Nullam nec purus ut sem aliquam tincidunt.",
+      "tags": ["nodejs", "express", "sequelize"]
+    },
+    {
+      "id": "74e5",
+      "name": "Github",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ut sem aliquam tincidunt. Nullam nec purus ut sem aliquam tincidunt.",
       "tags": ["nodejs", "express", "sequelize"]
     }
   ]
