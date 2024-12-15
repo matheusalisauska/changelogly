@@ -10,7 +10,7 @@ export default function ProtectedLayout({
     <main className="flex flex-col lg:flex-row h-screen overflow-hidden">
       <Sidebar />
       <div className="flex flex-1 lg:flex-col mt-16 lg:mt-28 h-full">
-        <div className="flex-1 bg-white overflow-y-auto px-4 sm:px-8 lg:pr-16 2xl:pr-12">
+        <div className="flex-1 bg-[#f9f6f5] overflow-y-auto px-2 sm:px-8 lg:pr-16 2xl:pr-12">
           <HeaderProtected />
           {children}
         </div>
