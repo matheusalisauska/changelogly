@@ -18,7 +18,7 @@ export async function createProject(data: CreateProject) {
 
     await fetch(`${env.API_URL}/projects`, {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(result.data),
       headers: {
         'Content-Type': 'application/json',
       },
