@@ -4,6 +4,7 @@ import { ProjectCard } from "./ProjectCard";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Project } from "@/utils/data/projects/get-projects";
+import { Section } from "../Section";
 
 interface ProjectsProps {
   projects: Project[];
@@ -12,7 +13,7 @@ interface ProjectsProps {
 export const Projects = ({ projects }: ProjectsProps) => {
   return (
     <div className="flex flex-col gap-y-6 mt-8">
-      <section className="flex flex-col gap-y-4">
+      <Section className="flex flex-col gap-y-6">
         <div className="flex items-center justify-between w-full">
           <h2 className="text-xl font-medium sm:text-2xl">All Projects</h2>
           <Link href={'/create-project'}>
@@ -23,7 +24,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
           </Link>
         </div>
         <Input placeholder="Search your project" className="sm:max-w-[300px]" />
-      </section>
+      </Section>
       {projects.length === 0 ? (
         <p className="text-sm  text-center text-gray-400">No projects found</p>
       ) : (
